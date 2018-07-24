@@ -65,8 +65,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-12" />
-    <option name="y" value="377" />
+    <option name="x" value="70" />
+    <option name="y" value="214" />
     <option name="width" value="1246" />
     <option name="height" value="665" />
   </component>
@@ -278,7 +278,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>No facets are configured</last-edited>
+          <last-edited />
           <splitter-proportions>
             <option name="proportions">
               <list>
