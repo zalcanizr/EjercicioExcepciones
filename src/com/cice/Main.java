@@ -1,11 +1,9 @@
 package com.cice;
 
 
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
-import java.io.InputStreamReader;
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.util.StringTokenizer;
 
 public class Main {
     private static final String ruta="ficheroparametros.txt";
@@ -20,39 +18,36 @@ public class Main {
 
         try {
             a = Integer.parseInt(sc.next());
-            System.out.println("Ha introducido el número:  " + a);
-        } catch (NumberFormatException e) {
+        }
+        catch (NumberFormatException e) {
             System.out.println("El dato introducido no es un número.");
         }
-
-        try (
-           BufferedReader br=new BufferedReader(new FileReader(ruta));
-           Scanner scan=new Scanner(reader);
-           while (scan.hasNextInt()) {
-            System.out.println(scan.nextLine());
+        System.out.println("Introduce el nombre del fichero:  ");
+        File archivo = new File (sc.next());
+        try {
+            sc = new Scanner (archivo);
+            while (sc.hasNextLine()) {
+                String linea = sc.nextLine();
+                System.out.println(linea);
             }
+            sc.close();
         }
         catch(IOException e) {
-        System.out.println("error de e/s");
+        System.out.println("El fichero no se encuentra en la ruta indicada.");
         }
+        String[] linea; //posible ArrayIndexOutOfBoundsException
 
-        /*try {
-            while (i<parametros.length) {
-                BufferedReader b = new BufferedReader(new InputStreamReader(System.in));
-                System.out.println("Introduzca el parámetro " + (i + 1) + " : ");
-                String parametro = b.readLine();
-                parametros[i] = String.valueOf(parametro);
-                i++;
+       /* try{
+            BufferedReader fich = new BufferedReader(new FileReader(nombreFich));
+            int contadorL = 0;
+            String linea;
+
+            while((linea = fich.readLine()) != null) {
+                contadorL++;
             }
-        } catch (IOException e) {
-            System.out.println("Error.No se encuentra parametro en esta posición");
-        }
-        System.out.println(parametros.length);*/
-        /*try{
-        m_array[10]=100; //posible ArrayIndexOutOfBoundsException
         }
         catch (ArrayIndexOutOfBoundsException obj){
-        System.out.println(“La posición indicada del array no existe”);
+        System.out.println("Indice fuera de límites.");
         }*/
 
     }
